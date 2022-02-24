@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\OptionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('Estados/{id}', [OptionsController::class, 'Buscar_Estados']);//->name("BEstados");
+Route::get('Ciudades/{id}', [OptionsController::class, 'Buscar_Ciudades']);//->name("BEstados");
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
