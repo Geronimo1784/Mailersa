@@ -47,7 +47,7 @@ class HomeController extends Controller
 
         }
 
-        SendEMail::dispatch()->onQueue('qcorreos');
+        $SendEMail = SendEMail::dispatch()->onQueue('qcorreos');
         return redirect()->route('home');
         
     }
