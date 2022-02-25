@@ -99,7 +99,7 @@
                             if(data.data.length > 0 )   {               
                                 for (var i=0; i < data.data.length; i++) {
                                     console.log(1)
-                                    $('#ListInvent tbody').append("<tr> <td>"+data.data[i].name+"</td> <td>"+data.data[i].email+"</td> <td>"+data.data[i].cedula+"</td> <td>"+data.data[i].numero_celular+"</td> <td>"+data.data[i].rol+"</td> <td>"+data.data[i].f_nacimiento+"</td>  <td> - </td> <td> "+data.data[i].cod_ciudad+" </td> <td> <a class='item' href='{{url('/EditarUser/'.$data->id)}}'> <div> <img src='{{url('/Images/Edit.png') }}'  width='20' height='20'/></div> </a> </td> <td> <a class='item' href='{{url('/DeleteUser/'.$data->id)}}'> <div> <img src='{{url('/Images/Delete.png') }}'  width='20' height='20'/></div> </a> </td>  </tr>");
+                                    $('#ListInvent tbody').append("<tr> <td>"+data.data[i].name+"</td> <td>"+data.data[i].email+"</td> <td>"+data.data[i].cedula+"</td> <td>"+data.data[i].numero_celular+"</td> <td>"+data.data[i].rol+"</td> <td>"+data.data[i].f_nacimiento+"</td>  <td> - </td> <td> "+data.data[i].cod_ciudad+" </td> <td> <a class='item' href='{{url('/EditarUser/')}}/"+ data.data[i].id +"'> <div> <img src='{{url('/Images/Edit.png') }}'  width='20' height='20'/></div> </a> </td> <td> <a class='item' href='{{url('/DeleteUser/')}}/"+ data.data[i].id +"'> <div> <img src='{{url('/Images/Delete.png') }}'  width='20' height='20'/></div> </a> </td>  </tr>");
                                 }
                             } else{
                                 $('#ListInvent tbody').append("<tr> <td>No hay busqueda relacionada.</td></tr>");  

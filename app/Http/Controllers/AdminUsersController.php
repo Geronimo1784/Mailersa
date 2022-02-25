@@ -51,7 +51,7 @@ class AdminUsersController extends Controller{
     public function Buscar(Request $req, $id = null){
 
         $User = DB::table('users')
-        ->select('name', 'email', 'cedula', 'numero_celular', 'rol', 'f_nacimiento', 'cod_ciudad')
+        ->select('id', 'name', 'email', 'cedula', 'numero_celular', 'rol', 'f_nacimiento', 'cod_ciudad')
         ->where(DB::raw("CONCAT(name,' ',cedula,' ',email )"), 'LIKE', '%' . $id . '%')
         ->paginate(10);
         
