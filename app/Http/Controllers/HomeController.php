@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Emails;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmailUsers;
+use App\Jobs\SendEMail;
 
 class HomeController extends Controller
 {
@@ -28,4 +32,37 @@ class HomeController extends Controller
             'Users' => $Users
         ]);
     }
+
+    public function SendMailLog(Request $req){
+
+        if ( $req->isMethod('post') ) {
+
+            $Mail = new Emails; 
+            $Mail->id_usuario = $req->input('id_user');
+            $Mail->asunto = $req->input('asunto');            
+            $Mail->destinatario = $req->input('destino');
+            $Mail->mensage = $req->input('body');
+            $Mail->estado = 'no enviado';
+            $Mail->save();
+
+        }
+
+        SendEMail::dispatch()->onQueue('qcorreos');
+        return redirect()->route('home');
+        
+    }
+
+    public function Mailusuarios(Request $req, $id = null){
+
+        $Mails = Emails::where('id_usuario', $id)->get();
+        return $Mails;
+
+    }
+
+    public function Emailsall(Request $req, $id = null){
+
+        $Mails = Emails::All();
+        return $Mails;
+
+    }    
 }

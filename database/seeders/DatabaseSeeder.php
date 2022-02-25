@@ -17,7 +17,7 @@ class DatabaseSeeder extends Seeder
     public function run(){
 
         $Users = new User();
-        $Users->email = 'daniel@gmail.com';
+        $Users->email = 'admin@admin.com';
         $Users->password = Hash::make('#Admin1234');
         $Users->name = 'Daniel Martinez Vergara';
         $Users->numero_celular = '3115687898';
@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         $Users->save();    
         
         $Users = new User();
-        $Users->email = 'mariab@gmail.com';
+        $Users->email = 'master@admin.com';
         $Users->password = Hash::make('#Admin1234');
         $Users->name = 'Maria Cabrales Lopez';
         $Users->numero_celular = '3215487896';
@@ -37,7 +37,5 @@ class DatabaseSeeder extends Seeder
         $Users->f_nacimiento = '1980-12-15';             
         $Users->cod_ciudad = 3;
         $Users->save();      
-
-
     }
 }
