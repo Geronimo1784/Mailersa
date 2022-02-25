@@ -47,10 +47,7 @@ class HomeController extends Controller
 
         }
 
-        $emailJobs = new SendEMail();
-        $this->dispatch($emailJobs);
-
-        //$SendEMail = SendEMail::dispatch();
+        SendEMail::dispatch();
         return redirect()->route('home');
         
     }
